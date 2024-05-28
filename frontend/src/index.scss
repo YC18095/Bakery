@@ -1,0 +1,1169 @@
+$primary: #d31665;
+$white: #fff;
+$black: #000;
+$textFst: #333;
+$textSnd: #666;
+$textTrd: #999;
+$red: #be1010;
+
+* {
+  letter-spacing: 0.5px;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  &:focus-visible {
+    outline-offset: unset;
+    outline: unset;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.5;
+}
+
+ul {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+
+input,
+button {
+  outline: none;
+}
+
+button {
+  border: unset;
+  background-color: transparent;
+}
+
+.page-link:focus,
+.btn-close:focus {
+  background-color: unset;
+}
+
+.btn:focus,
+.btn-primary:focus,
+.btn-secondary:focus,
+.btn-primary:active:focus,
+.btn-secondary:active:focus,
+.page-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+  box-shadow: unset;
+}
+
+.nav-link:focus {
+  color: $textFst;
+}
+
+.ratio {
+  overflow: hidden;
+  &.ratio-10x4 {
+    --bs-aspect-ratio: 40%;
+  }
+  &.ratio-16x10 {
+    --bs-aspect-ratio: 62.5%;
+  }
+}
+
+.container-ctm {
+  @media (min-width: 1400px) {
+    max-width: 1140px
+  }
+}
+
+.btn-primary {
+  background-color: $primary;
+  border-color: $primary;
+  &:hover {
+    background-color: darken($primary, 5%);
+    border-color: darken($primary, 5%);
+  }
+  &:focus {
+    background-color: $primary;
+    border-color: $primary;
+  }
+}
+
+.btn {
+  width: 150px;
+  padding: 7px 14px;
+  font-size: 14px;
+  border: 5px;
+  font-weight: 100;
+}
+
+.btn-white {
+  background-color: transparent;
+  border: 1px solid $textTrd;
+  color: $textSnd;
+  &:hover {
+    color: $primary;
+    border-color: $primary;
+  }
+}
+
+.btn-none {
+  background-color: transparent;
+  color: $textSnd;
+  &:hover {
+    color: $primary;
+  }
+}
+
+.bgi-cover {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+// user page
+.modal {
+  &-dialog {
+    &:not(.modal-sm):not(.modal-md):not(.modal-lg) {
+      max-width: 85%;
+    }
+    height: calc(100vh - 3.5rem);
+  }
+  &-content {
+    max-height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 10px;
+    .icon {
+      font-size: 18px;
+      color: $textSnd;
+      &:hover {
+        color: $primary;
+      }
+    }
+    &.product__list, &.news__list, &.news__content {
+      min-height: 650px;
+    }
+    &.product__content {
+      min-height: 400px;
+    }
+  }
+  .loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .spinner-border {
+      width: 3rem;
+      height: 3rem;
+      border-color: $primary;
+      border-right-color: transparent;
+    }
+  }
+}
+
+@for $i from 2 through 3 {
+  .text-limit-#{$i} {
+    display: -webkit-box;
+    -webkit-line-clamp: #{$i};
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    &.text-h {
+      height: calc(1em * 1.5 * #{$i});
+    }
+    &.text-mh {
+      max-height: calc(1em * 1.5 * #{$i});
+    }
+  }
+}
+
+.header {
+  background-color: $white;
+  position: sticky;
+  top: 0px;
+  z-index: 9;
+
+  &__logo,
+  &__feature {
+    width: 200px;
+  }
+
+  &__logo {
+    > a {
+      width: 160px;
+    }
+  }
+
+  &__navbar {
+    padding: 0px;
+    font-size: 14px;
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nav-item {
+      position: relative;
+
+      &:hover {
+        > .nav-link {
+          color: $primary;
+        }
+
+        .header__list {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      .nav-link {
+        padding: 16px;
+        text-transform: uppercase;
+        color: $textFst;
+        display: block;
+
+        &.active {
+          color: $primary;
+        }
+
+        i {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  &__list {
+    min-width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $white;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 300ms ease;
+    box-shadow: 0px 0px 5px rgba($textTrd, 0.5);
+    border-radius: 5px;
+    overflow: hidden;
+
+    .nav-item {
+      width: 100%;
+
+      .nav-link {
+        padding: 8px 16px;
+        font-size: 12px;
+        text-align: center;
+        white-space: nowrap;
+        &.active {
+          color: $textFst;
+        }
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  border-top: 5px solid rgba($primary, 0.1);
+  color: darken($white, 10%);
+  font-size: 12px;
+  position: relative;
+  background-image: linear-gradient(90deg, rgba($primary, 0.5) 30%, transparent);
+  &::after {
+    width: 100%;
+    height: 100%;
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    background-image: url(./images/footer-bg.png);
+    background-position: bottom right;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  &__info {
+    span, a {
+      color: $white;
+      font-size: 14px;
+      &:not(span):hover {
+        color: $primary;
+      }
+    }
+  }
+  &__map {
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.form-search {
+  position: relative;
+
+  &:focus-within {
+    &::after {
+      width: 100%;
+    }
+  }
+
+  &::after {
+    width: 0px;
+    height: 1px;
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background-color: $primary;
+    transition: width 300ms ease;
+  }
+
+  input {
+    padding: 7px 30px 7px 5px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid lighten($black, 80%);
+    font-size: 14px;
+    font-weight: 100;
+    color: $textSnd;
+  }
+
+  button {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    color: $textSnd;
+
+    &::placeholder {
+      color: $textTrd;
+    }
+  }
+}
+
+.form-check {
+  position: relative;
+
+  input,
+  label {
+    font-size: 14px;
+    color: $textSnd;
+    cursor: pointer;
+  }
+
+  input {
+    width: 0.75rem;
+    height: 0.75rem;
+    position: absolute;
+    top: 2px;
+  }
+
+  .form-check-input:checked {
+    background-color: lighten($primary, 10%);
+    border-color: lighten($primary, 10%);
+  }
+}
+
+.title {
+  font-size: 14px;
+  color: $textTrd;
+
+  h6 {
+    font-size: 26px;
+    font-weight: 400;
+    color: $textSnd;
+  }
+}
+
+.banner {
+  &__carousel {
+    .swiper-pagination-bullet {
+      width: 25px;
+      height: 3px;
+      background-color: $white;
+      border-radius: 0px;
+
+      &.swiper-pagination-bullet-active {
+        height: 5px;
+        background-color: lighten($primary, 20%);
+      }
+    }
+  }
+
+  &__counter {
+    width: 300px;
+    padding: 20px 15px;
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    z-index: 9;
+    transform: translateY(-50%);
+    background-color: rgba($textFst, 0.7);
+    color: $white;
+    font-weight: 100;
+    border-radius: 5px;
+    font-size: 16px;
+
+    span {
+      line-height: 1.2;
+      font-size: 40px;
+    }
+  }
+}
+
+.product {
+  &__tab {
+    justify-content: center;
+    border: none;
+
+    .nav-item:not(:last-child) {
+      margin-right: 20px;
+    }
+
+    .nav-link {
+      padding: 0px 0px 8px;
+      border: none;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: $textTrd;
+      position: relative;
+
+      &:hover,
+      &.active {
+        color: $textFst;
+        border: none;
+
+        &::after {
+          width: 100%;
+          right: unset;
+          left: 0px;
+        }
+      }
+
+      &::after {
+        width: 0px;
+        height: 1px;
+        content: "";
+        background-color: lighten($primary, 10%);
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        transition: width 500ms ease;
+      }
+    }
+  }
+
+  &__item {
+    display: block;
+    font-size: 14px;
+    transition: transform 500ms ease;
+
+    &:hover {
+      transform: translateY(-10px);
+
+      h3 {
+        color: $primary;
+      }
+    }
+
+    h3 {
+      font-size: 16px;
+      color: $textFst;
+      font-weight: 100;
+    }
+
+    .content {
+      color: $textTrd;
+      font-style: italic;
+
+      p {
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+  &__list {
+    max-width: 1200px;
+
+    h6 {
+      font-size: 18px;
+      font-weight: 400;
+      color: $textFst;
+    }
+  }
+
+  &__filter {
+    position: sticky;
+    top: 0px;
+
+    h6 {
+      font-weight: 400;
+      color: $textFst;
+    }
+    
+    .form-check label {
+      display: block;
+    }
+
+  }
+
+  &__content {
+    max-width: 800px;
+
+    h2 {
+      font-size: 28px;
+      font-weight: 400;
+      color: #333;
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: rgba($primary, 0.8);
+    }
+  }
+
+  &__thumbnail {
+    .swiper-slide {
+      opacity: 0.3;
+      transition: opacity 300ms ease;
+
+      &:hover,
+      &.swiper-slide-thumb-active {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__info {
+    font-size: 14px;
+    color: $textSnd;
+
+    >div {
+      margin-bottom: 5px;
+    }
+
+    a {
+      color: $textTrd;
+
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      &:hover {
+        color: $primary;
+      }
+
+      &:not(.media) {
+        font-size: 12px;
+      }
+    }
+
+    p {
+      margin-bottom: 0.5rem;
+      color: $textTrd;
+      text-align: justify;
+      font-style: italic;
+
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+  &__item-snd {
+    align-items: center;
+
+    &:hover {
+      .ratio {
+        opacity: 1;
+      }
+
+      h3 {
+        color: $primary;
+      }
+    }
+
+    .ratio {
+      opacity: 0.5;
+      transition: opacity 300ms ease;
+    }
+
+    h3 {
+      font-size: 14px;
+      color: $textSnd;
+      font-weight: 400;
+    }
+  }
+}
+
+.pagination {
+  .page-item {
+    
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
+
+    &.active .page-link, &:hover .page-link {
+      background-color: lighten($primary, 10%);
+      border-color: lighten($primary, 10%);
+      color: $white;
+    }
+  }
+
+  .page-link {
+    width: 34px;
+    height: 34px;
+    padding: 0px 5px;
+    line-height: 32px;
+    text-align: center;
+    color: $textSnd;
+    transition: background-color 350ms ease;
+    border-radius: 5px;
+  }
+}
+
+.about {
+  &__bg {
+    position: relative;
+
+    &::after {
+      width: 100%;
+      height: 100%;
+      content: "";
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      background-image: linear-gradient(90deg, transparent 30%, rgba($white, 0.6) 50%);
+    }
+  }
+
+  &__box {
+    padding: 20px 30px 30px;
+    background-color: $white;
+    border-radius: 5px;
+    font-size: 14px;
+    color: $textSnd;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0px 0px 4px rgba($textTrd, 0.5);
+
+    h6 {
+      font-size: 20px;
+      font-weight: 400;
+      color: $textFst;
+
+      span {
+        border-bottom: 1px solid $primary;
+      }
+    }
+
+    .content {
+      text-align: justify;
+
+      p {
+        margin-bottom: 0.5rem;
+
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+}
+
+.news {
+  &__carousel {
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 40px;
+      height: 40px;
+      background-color: lighten($primary, 20%);
+      color: $white;
+      font-size: 20px;
+      opacity: 0.5;
+      transition: opacity 300ms ease;
+      border-radius: 5px;
+      position: absolute;
+      top: 50%;
+      z-index: 9;
+      transform: translateY(-50%);
+      &:not(.swiper-button-disabled) {
+        cursor: pointer;
+        &:hover {
+          opacity: 1;
+        }
+      }
+      &::after {
+        content: unset;
+      }
+      i {
+        position: absolute;
+        display: inline-block;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    .swiper-button-next {
+      right: 10px;
+      i {
+        left: 53%;
+      }
+    }
+    .swiper-button-prev {
+      left: 10px;
+      i {
+        left: 50%;
+      }
+    }
+  }
+
+  &__list {
+    max-width: 1200px;
+
+    h6 {
+      font-size: 18px;
+      font-weight: 400;
+      color: $textFst;
+    }
+  }
+
+  &__item {
+    overflow: hidden;
+    font-weight: 100;
+    font-style: italic;
+    position: relative;
+    font-size: 14px;
+
+    &:hover {
+      .ratio img {
+        transform: scale(1.05);
+      }
+
+      h3 {
+        color: $primary;
+      }
+    }
+
+    .ratio img {
+      transition: transform 400ms ease;
+    }
+
+    .date {
+      width: 50px;
+      padding: 5px;
+      background-color: $white;
+      box-shadow: 0 0 5px rgba($textTrd, 0.5);
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 1;
+      text-align: center;
+      color: $textSnd;
+      text-transform: uppercase;
+      line-height: 1.2;
+      font-size: 20px;
+      font-weight: 600;
+      border-radius: 5px;
+
+      span {
+        font-size: 14px;
+      }
+    }
+
+    h3 {
+      font-size: 16px;
+      color: $textSnd;
+      font-weight: 400;
+    }
+
+    .content {
+      color: $textTrd;
+      text-align: justify;
+
+      p {
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+  &__content {
+    max-width: 800px;
+    font-style: italic;
+
+    .modal-header {
+      flex-wrap: wrap;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    .tag {
+      font-size: 12px;
+      color: $textTrd;
+    }
+
+    .content {
+      font-size: 14px;
+      color: $textSnd;
+
+      h6 {
+        margin-bottom: 0.5rem;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      p:not(:last-child) {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .share {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 14px;
+      color: $textTrd;
+
+      a {
+        color: $textTrd;
+
+        &:hover {
+          color: $primary;
+        }
+
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .more a {
+      font-size: 14px;
+      color: $textSnd;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
+
+// admin page
+.admin {
+  background-color: darken($white, 5%);
+  &__box {
+    background-color: $white;
+    box-shadow: 0 0 5px rgba($black, 0.1);
+    border-radius: 15px;
+  }
+  &__title {
+    background-color: $primary;
+    color: $white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transform: translateY(-35%);
+    box-shadow: 0px 1px 5px rgba($primary, 0.5), 0px 2px 10px rgba($black, 0.3);
+  }
+  &__button {
+    button {
+      width: unset;
+      padding: unset;
+    }
+    a, button {
+      padding-bottom: 3px;
+      display: inline-block;
+      color: $white;
+      font-weight: normal;
+      position: relative;
+      font-size: 14px;
+      &:hover {
+        color: $white;
+        &::after {
+          width: 100%;
+          left: 0px;
+          right: unset;
+        }
+      }
+      &::after {
+        width: 0px;
+        height: 1px;
+        content: "";
+        background-color: $white;
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        transition: width 350ms ease;
+      }
+    }
+    i {
+      margin-right: 2px;
+    }
+  }
+  &__list {
+    border-collapse: unset;
+    border-spacing: 0px;
+    thead {
+      font-size: 12px;
+      text-transform: uppercase;
+      color: $textTrd;
+      font-weight: bold;
+    }
+    tbody {
+      td {
+        height: 50px;
+        vertical-align: middle;
+        font-size: 14px;
+        color: $textTrd;
+        &.name {
+          color: $textSnd;
+          span {
+            font-size: 12px;
+            font-style: italic;
+            color: $textTrd;
+          }
+        }
+        &.status {
+          width: 200px;
+          text-transform: uppercase;
+          .badge {
+            padding: 5px;
+            font-size: 10px;
+            border-radius: 7px;
+          }
+        }
+        &.relation {
+          width: 200px;
+          font-weight: bold;
+          a {
+            color: $textTrd;
+            &:hover {
+              color: $primary;
+            }
+          }
+        }
+        &.option {
+          width: 150px;
+          a {
+            padding: 2px 7px;
+            display: inline-block;
+            color: $textTrd;
+            &:hover {
+              color: $primary
+            }
+          }
+          i {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+  &__detail {
+    .row {
+      &:hover {
+        background-color: rgba($black, 0.075);
+      }
+      &:last-child {
+        border-bottom: unset;
+      }
+    }
+  }
+  &__relation {
+    h6 {
+      color: $textSnd;
+    }
+    .title {
+      font-size: 12px;
+      color: $textTrd;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    .item {
+      display: flex;
+      align-items: center;
+      position: relative;
+      &:not(:last-child) {
+        border-bottom: 1px solid #dee2e6;
+      }
+      .ratio {
+        flex: 0 0 45px;
+        max-width: 45px;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .content {
+        flex: 0 0 calc(100% - 45px);
+        max-width: calc(100% - 45px);
+        display: flex;
+        align-items: center;
+      }
+      h3 {
+        flex: 0 0 calc(100% - 85px);
+        max-width: calc(100% - 85px);
+        font-size: 14px;
+      }
+      .stretched-link {
+        color: $textSnd;
+        &:hover {
+          color: $primary;
+        }
+      }
+      .status {
+        flex: 0 0 85px;
+        max-width: 85px;
+      }
+      .btn-remove {
+        position: relative;
+        z-index: 9;
+        font-size: 12px;
+        color: $textTrd;
+        &:hover {
+          color: $red;
+        }
+      }
+    }
+  }
+  &__form {
+    .form-check {
+      input, label, button {
+        font-size: 16px;
+      }
+    }
+  }
+  &__prev, &__next {
+    color: $textTrd;
+    font-size: 14px;
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.sidebar {
+  height: 100vh;
+  width: 300px;
+  position: sticky;
+  &__box {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: lighten($black, 25%);
+  }
+  &__logo {
+    text-align: center;
+    border-bottom: 1px solid $textTrd;
+    img {
+      max-width: 70%;
+    }
+  }
+  &__navbar {
+    flex-flow: column;
+    .nav-link {
+      padding: 10px 20px;
+      font-size: 14px;
+      color: $white;
+      border-radius: 8px;
+      &:hover {
+        background-color: rgba($white, 0.1);
+      }
+      &.active {
+        background-color: $primary;
+      }
+      i {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h6 {
+    font-size: 18px;
+    color: $textFst;
+    font-weight: bold;
+  }
+  &__option {
+    display: flex;
+    align-items: center;
+    .dropdown {
+      &-toggle {
+        width: 200px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        span {
+          flex: 0 0 150px;
+          max-width: 150px;
+          color: $textSnd;
+        }
+        .ratio {
+          flex: 0 0 40px;
+          max-width: 40px;
+          border-radius: 50%;
+          overflow: hidden;
+          border: 3px solid $white;
+          outline: 1px solid rgba($textTrd, 0.5);
+        }
+        &::after {
+          content: unset;
+        }
+      }
+      &-menu {
+        border: none;
+        border-radius: 10px;
+        right: 0px;
+        overflow: hidden;
+        background-color: darken($white, 2%);
+        box-shadow: 0 0 10px rgba($textTrd, 0.1);
+      }
+      &-item {
+        padding: 10px 20px;
+        font-size: 14px;
+        color: $textSnd;
+        transition: background-color 350ms ease;
+        &:active, &:hover {
+          background-color: $primary;
+          color: $white;
+        }
+        i {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+id,name,images,content,status,typeId
+1,Moon cake,"bread-1.png,bread-2.png,bread-3.png,bread-4.png,bread-5.png",Moon cake is a traditional cake for Mid-Autumn Festival.,1,1
+2,Fat cake,"bread-2.png,bread-3.png,bread-4.png,bread-5.png,bread-6.png",Fat cake is a traditional cake for Lunar New Year.,1,1
+3,Choco-pie,"bread-3.png,bread-4.png,bread-5.png,bread-6.png,bread-7.png",A choco pie is a snack cake consisting of two small round layers of cake with marshmallow filling and a chocolate covering.,1,2
+4,Choco-pie (dark),"bread-4.png,bread-5.png,bread-6.png,bread-7.png,bread-8.png",A choco pie is a snack cake consisting of two small round layers of cake with marshmallow filling and a chocolate covering.,1,2
+5,Moon cake,"bread-5.png,bread-6.png,bread-7.png,bread-8.png,bread-1.png",Moon cake is a traditional cake for Mid-Autumn Festival.,1,1
+6,Fat cake,"bread-6.png,bread-7.png,bread-8.png,bread-1.png,bread-2.png",Fat cake is a traditional cake for Lunar New Year.,1,1
+7,Choco-pie,"bread-7.png,bread-8.png,bread-1.png,bread-2.png,bread-3.png",A choco pie is a snack cake consisting of two small round layers of cake with marshmallow filling and a chocolate covering.,1,2
+8,Choco-pie (dark),"bread-8.png,bread-1.png,bread-2.png,bread-3.png,bread-4.png",A choco pie is a snack cake consisting of two small round layers of cake with marshmallow filling and a chocolate covering.,1,2
+9,Moon cake,"bread-2.png,bread-3.png,bread-4.png,bread-5.png,bread-6.png",Moon cake is a traditional cake for Mid-Autumn Festival.,1,1
+10,Fat cake,"bread-4.png,bread-5.png,bread-6.png,bread-7.png,bread-8.png",Fat cake is a traditional cake for Lunar New Year.,1,1
+11,Choco-pie,"bread-6.png,bread-7.png,bread-8.png,bread-1.png,bread-2.png",A choco pie is a snack cake consisting of two small round layers of cake with marshmallow filling and a chocolate covering.,1,2
+12,Choco-pie (dark),"bread-8.png,bread-1.png,bread-2.png,bread-3.png,bread-4.png",A choco pie is a snack cake consisting of two small round layers of cake with marshmallow filling and a chocolate covering.,1,2
+13,Moon cake,"bread-1.png,bread-2.png,bread-3.png,bread-4.png,bread-5.png",Moon cake is a traditional cake for Mid-Autumn Festival.,1,1
+14,Fat cake,"bread-3.png,bread-4.png,bread-5.png,bread-6.png,bread-7.png",Fat cake is a traditional cake for Lunar New Year.,1,1
+15,Choco-pie,"bread-5.png,bread-6.png,bread-7.png,bread-8.png,bread-1.png",A choco pie is a snack cake consisting of two small round layers of cake with marshmallow filling and a chocolate covering.,1,2
+16,Choco-pie (dark),"bread-7.png,bread-8.png,bread-1.png,bread-2.png,bread-3.png",A choco pie is a snack cake consisting of two small round layers of cake with marshmallow filling and a chocolate covering.,1,2
+17,Moon cake,"bread-1.png,bread-2.png,bread-3.png,bread-4.png,bread-5.png",Moon cake is a traditional cake for Mid-Autumn Festival.,1,1
+18,Fat cake,"bread-3.png,bread-4.png,bread-5.png,bread-6.png,bread-7.png",Fat cake is a traditional cake for Lunar New Year.,1,1
+19,Choco-pie,"bread-5.png,bread-6.png,bread-7.png,bread-8.png,bread-1.png",A choco pie is a snack cake consisting of two small round layers of cake with marshmallow filling and a chocolate covering.,1,2
+20,Choco-pie (dark),"bread-7.png,bread-8.png,bread-1.png,bread-2.png,bread-3.png",A choco pie is a snack cake consisting of two small round layers of cake with marshmallow filling and a chocolate covering.,1,2
